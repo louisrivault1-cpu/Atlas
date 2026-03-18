@@ -339,6 +339,33 @@ body{-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
 
 .share-toast{display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--g);color:#fff;padding:8px 16px;border-radius:8px;font-size:11px;font-weight:600;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,.3)}
 .card:hover{border-color:var(--a)!important;transform:translateY(-1px);transition:all .15s}
+/* Bubble modals */
+.dash-bubbles{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px 0 6px;padding-top:14px;border-top:1px solid var(--b)}
+.bubble-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:24px;font-size:11px;font-weight:600;cursor:pointer;transition:all .25s;border:1px solid;user-select:none}
+.bubble-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.bubble-btn.active{transform:translateY(0);box-shadow:none}
+.bm-profil{background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.25);color:var(--a)}
+.bm-profil:hover,.bm-profil.active{background:rgba(59,130,246,.15)}
+.bm-atlas{background:rgba(168,85,247,.08);border-color:rgba(168,85,247,.25);color:var(--p)}
+.bm-atlas:hover,.bm-atlas.active{background:rgba(168,85,247,.15)}
+.bubble-panel{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease,margin .3s ease;opacity:0;margin:0}
+.bubble-panel.open{max-height:800px;opacity:1;margin:12px 0 4px}
+.bp-inner{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:16px;animation:fi .25s ease}
+.pill{display:inline-flex;align-items:center;gap:4px;padding:4px 11px;border-radius:16px;font-size:9px;font-weight:500;white-space:nowrap}
+.pill-b{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.12);color:var(--a)}
+.pill-g{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.12);color:var(--g)}
+.pill-p{background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.12);color:var(--p)}
+.pill-am{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.12);color:var(--am)}
+.pill-cy{background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12);color:var(--cy)}
+.pill-r{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.12);color:var(--r)}
+.pill-neutral{background:var(--bg3);border:1px solid var(--b);color:var(--t2)}
+.pill-link{text-decoration:none;cursor:pointer;transition:all .2s}.pill-link:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.xp-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px}.xp-row:last-child{margin-bottom:0}
+.xp-icon{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.xp-info{display:flex;flex-direction:column;gap:3px}
+.xp-title{font-weight:600;font-size:11px}.xp-sub{color:var(--t3);font-size:9px}
+.section-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+@media(max-width:480px){.bubble-btn{padding:8px 14px;font-size:10px}.bp-inner{padding:12px}.pill{font-size:8px;padding:3px 8px}}
 </style></head><body><div class="app">
 <nav class="sb"><div class="logo"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:36px;flex-shrink:0">
 <defs>
@@ -375,7 +402,6 @@ body{-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
 <div class="ni" onclick="shareApp()">🔗<span class="tip">Partager</span></div>
 <div class="ni" data-p="sc" onclick="go('sc')">🏆<span class="tip">Scores</span></div>
 <div class="ni" data-p="plan" onclick="go('plan')">📅<span class="tip">Planning</span></div>
-<div class="ni" data-p="about" onclick="go('about')">ℹ️<span class="tip">À propos</span></div>
 </div></nav>
 <div class="mn">
 <div class="pg on" id="pg-dash">
@@ -398,14 +424,115 @@ body{-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
 <div class="card" onclick="go('e6')" style="background:var(--c);border:1px solid var(--b);border-radius:10px;padding:14px;cursor:pointer"><div style="font-weight:600;font-size:13px">📊 E6 — Performance</div><div style="font-size:9px;color:var(--t3);margin-top:4px">20 fiches · 200 quiz · 63 ex · 60 interactifs</div></div>
 <div class="card" onclick="go('e7')" style="background:var(--c);border:1px solid var(--b);border-radius:10px;padding:14px;cursor:pointer"><div style="font-weight:600;font-size:13px">🚀 E7 — Pérennisation</div><div style="font-size:9px;color:var(--t3);margin-top:4px">20 fiches · 200 quiz · 63 ex · 30 interactifs</div></div>
 </div>
-<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px 0 6px;padding-top:14px;border-top:1px solid var(--b)">
-<a href="https://www.linkedin.com/in/louis-rivault-b267502aa" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;padding:6px 16px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:20px;color:var(--a);text-decoration:none;font-size:10px;font-weight:600;transition:all .2s">
-<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
-LinkedIn
-</a>
-<span onclick="go('about')" style="display:inline-flex;align-items:center;gap:5px;padding:6px 16px;background:rgba(148,163,184,.06);border:1px solid rgba(148,163,184,.15);border-radius:20px;color:var(--t2);font-size:10px;font-weight:600;cursor:pointer;transition:all .2s">
-👤 Mon profil & CV
-</span>
+<!-- Clickable bubbles -->
+<div class="dash-bubbles">
+<div class="bubble-btn bm-profil" onclick="toggleBubble('profil')">👤 Mon Profil</div>
+<div class="bubble-btn bm-atlas" onclick="toggleBubble('atlas')">✨ À propos d'Atlas</div>
+</div>
+
+<!-- Profil panel -->
+<div class="bubble-panel" id="bp-profil">
+<div class="bp-inner">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+<div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--a),#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">👤</div>
+<div>
+<div style="font-weight:700;font-size:14px">Louis Rivault</div>
+<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:3px">
+<span class="pill pill-b">Logistique</span>
+<span class="pill pill-b">Transport</span>
+<span class="pill pill-b">Digital</span>
+</div>
+</div>
+</div>
+
+<div class="section-label" style="color:var(--a)">Expérience</div>
+<div class="xp-row">
+<div class="xp-icon" style="background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2)">🚢</div>
+<div class="xp-info">
+<div class="xp-title">Coordinateur Logistique — MSC</div>
+<div class="xp-sub">Le Havre · Alternance · 2024–2026</div>
+<div style="display:flex;gap:3px;flex-wrap:wrap;margin-top:3px">
+<span class="pill pill-neutral">Export</span><span class="pill pill-neutral">B/L</span><span class="pill pill-neutral">OVA · Echo</span><span class="pill pill-neutral">KPIs</span>
+</div>
+</div>
+</div>
+<div class="xp-row">
+<div class="xp-icon" style="background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2)">🛒</div>
+<div class="xp-info">
+<div class="xp-title">E-commerce — Projet actif</div>
+<div class="xp-sub">Multi-boutiques · Star Seller · 400+ avis</div>
+<div style="display:flex;gap:3px;flex-wrap:wrap;margin-top:3px">
+<span class="pill pill-neutral">Make.com</span><span class="pill pill-neutral">Notion</span><span class="pill pill-neutral">IA</span><span class="pill pill-neutral">SEO</span>
+</div>
+</div>
+</div>
+
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
+<div style="flex:1;min-width:140px">
+<div class="section-label" style="color:var(--p)">Formation</div>
+<div style="display:flex;flex-direction:column;gap:4px">
+<div style="display:flex;gap:6px;align-items:center"><span class="pill pill-p" style="font-weight:700">2024–26</span><span style="font-size:10px">BTS GTLA — EM Normandie</span></div>
+<div style="display:flex;gap:6px;align-items:center"><span class="pill pill-p" style="font-weight:700">2023–24</span><span style="font-size:10px">BUT MLT — IUT du Havre</span></div>
+<div style="display:flex;gap:6px;align-items:center"><span class="pill pill-p" style="font-weight:700">2023</span><span style="font-size:10px">Bac — Dieppe</span></div>
+</div>
+</div>
+<div style="flex:1;min-width:140px">
+<div class="section-label" style="color:var(--g)">Compétences</div>
+<div style="display:flex;gap:3px;flex-wrap:wrap">
+<span class="pill pill-g">Coordination logistique</span><span class="pill pill-g">Booking maritime</span><span class="pill pill-g">Gestion des flux</span><span class="pill pill-g">KPIs</span><span class="pill pill-g">E-commerce</span><span class="pill pill-g">Automatisation</span>
+</div>
+</div>
+</div>
+
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
+<div style="flex:1;min-width:140px">
+<div class="section-label" style="color:var(--am)">Outils</div>
+<div style="display:flex;gap:3px;flex-wrap:wrap">
+<span class="pill pill-am">Excel</span><span class="pill pill-am">TMS Dispatcher</span><span class="pill pill-am">Make.com</span><span class="pill pill-am">Notion</span><span class="pill pill-am">Claude API</span>
+</div>
+</div>
+<div style="flex:1;min-width:100px">
+<div class="section-label" style="color:var(--cy)">Langues</div>
+<div style="display:flex;gap:3px;flex-wrap:wrap">
+<span class="pill pill-b">🇬🇧 B2</span><span class="pill pill-r">🇪🇸 A2</span>
+</div>
+</div>
+</div>
+
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid var(--b)">
+<a href="https://www.linkedin.com/in/louis-rivault-b267502aa" target="_blank" rel="noopener" class="pill pill-b pill-link" style="font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg> LinkedIn</a>
+<span class="pill pill-neutral">📍 Le Havre</span>
+<span class="pill pill-neutral">🎾 Tennis</span>
+<span class="pill pill-neutral">⛵ Voile</span>
+<span class="pill pill-neutral">🚗 Auto</span>
+<span class="pill pill-neutral">⌚ Horlogerie</span>
+<span class="pill pill-neutral">🤖 IA</span>
+</div>
+</div>
+</div>
+
+<!-- Atlas panel -->
+<div class="bubble-panel" id="bp-atlas">
+<div class="bp-inner" style="text-align:center">
+<div style="font-size:22px;margin-bottom:6px">🌍</div>
+<div style="font-weight:700;font-size:13px;margin-bottom:10px">Portail de révisions BTS GTLA</div>
+<div style="display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin-bottom:10px">
+<span class="pill pill-b">📝 143 fiches</span>
+<span class="pill pill-p">🧠 1 400 quiz</span>
+<span class="pill pill-g">✏️ 408 exercices</span>
+<span class="pill pill-am">🎯 300 interactifs</span>
+<span class="pill pill-cy">📊 140 schémas</span>
+</div>
+<div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:center">
+<span class="pill pill-neutral">E1 Culture G.</span>
+<span class="pill pill-neutral">E2 Anglais</span>
+<span class="pill pill-neutral">E3 CEJM</span>
+<span class="pill pill-neutral">E4 Mise en œuvre</span>
+<span class="pill pill-neutral">E5 Conception</span>
+<span class="pill pill-neutral">E6 Performance</span>
+<span class="pill pill-neutral">E7 Pérennisation</span>
+</div>
+</div>
 </div>
 </div>
 <div class="pg" id="pg-e1"></div>
@@ -417,109 +544,6 @@ LinkedIn
 <div class="pg" id="pg-e7"></div>
 <div class="pg" id="pg-sc"></div>
 <div class="pg" id="pg-plan"></div>
-<div class="pg" id="pg-about">
-<div style="max-width:680px;margin:0 auto">
-
-<!-- Header profil -->
-<div style="text-align:center;padding:24px 0 18px">
-<div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--a),#8b5cf6);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:26px;box-shadow:0 4px 20px rgba(59,130,246,.3)">👤</div>
-<div style="font-family:var(--font-title);font-size:20px;font-weight:700">Louis Rivault</div>
-<div style="color:var(--t3);font-size:11px;margin-top:4px">Logistique · Transport · Digital</div>
-<div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:10px">
-<a href="https://www.linkedin.com/in/louis-rivault-b267502aa" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:5px 14px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25);border-radius:20px;color:var(--a);text-decoration:none;font-size:10px;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg> LinkedIn</a>
-<span style="display:inline-flex;align-items:center;gap:4px;padding:5px 14px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);border-radius:20px;color:var(--g);font-size:10px;font-weight:600">📍 Le Havre</span>
-<span style="display:inline-flex;align-items:center;gap:4px;padding:5px 14px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);border-radius:20px;color:var(--am);font-size:10px;font-weight:600">🎓 BTS GTLA 2026</span>
-</div>
-</div>
-
-<!-- ATLAS stats bubbles -->
-<div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:20px">
-<span style="padding:5px 12px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);border-radius:20px;font-size:10px;color:var(--a);font-weight:600">📝 143 fiches</span>
-<span style="padding:5px 12px;background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.15);border-radius:20px;font-size:10px;color:var(--p);font-weight:600">🧠 1 400 quiz</span>
-<span style="padding:5px 12px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);border-radius:20px;font-size:10px;color:var(--g);font-weight:600">✏️ 408 exercices</span>
-<span style="padding:5px 12px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.15);border-radius:20px;font-size:10px;color:var(--am);font-weight:600">🎯 300 interactifs</span>
-<span style="padding:5px 12px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.15);border-radius:20px;font-size:10px;color:var(--cy);font-weight:600">📊 140 schémas</span>
-</div>
-
-<!-- Expérience -->
-<div style="background:var(--c);border:1px solid var(--b);border-radius:16px;padding:16px;margin-bottom:10px">
-<div style="font-size:10px;font-weight:700;color:var(--a);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Expérience</div>
-<div style="display:flex;flex-direction:column;gap:10px">
-<div style="display:flex;gap:10px;align-items:flex-start">
-<div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(59,130,246,.15),rgba(59,130,246,.05));border:1px solid rgba(59,130,246,.2);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🚢</div>
-<div><div style="font-weight:600;font-size:11px">Coordinateur Logistique</div><div style="color:var(--t3);font-size:9px">MSC — Le Havre · Alternance · 2024–2026</div>
-<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:5px">
-<span style="padding:2px 8px;background:var(--bg3);border-radius:10px;font-size:8px;color:var(--t2)">Export</span>
-<span style="padding:2px 8px;background:var(--bg3);border-radius:10px;font-size:8px;color:var(--t2)">B/L</span>
-<span style="padding:2px 8px;background:var(--bg3);border-radius:10px;font-size:8px;color:var(--t2)">OVA · Echo</span>
-<span style="padding:2px 8px;background:var(--bg3);border-radius:10px;font-size:8px;color:var(--t2)">KPIs</span>
-</div></div>
-</div>
-<div style="display:flex;gap:10px;align-items:flex-start">
-<div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(34,197,94,.15),rgba(34,197,94,.05));border:1px solid rgba(34,197,94,.2);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🛒</div>
-<div><div style="font-weight:600;font-size:11px">E-commerce — Projet actif</div><div style="color:var(--t3);font-size:9px">Multi-boutiques Etsy & Vinted · Star Seller · 400+ avis</div>
-<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:5px">
-<span style="padding:2px 8px;background:var(--bg3);border-radius:10px;font-size:8px;color:var(--t2)">Make.com</span>
-<span style="padding:2px 8px;background:var(--bg3);border-radius:10px;font-size:8px;color:var(--t2)">Notion</span>
-<span style="padding:2px 8px;background:var(--bg3);border-radius:10px;font-size:8px;color:var(--t2)">IA</span>
-<span style="padding:2px 8px;background:var(--bg3);border-radius:10px;font-size:8px;color:var(--t2)">SEO</span>
-</div></div>
-</div>
-<div style="display:flex;gap:10px;align-items:flex-start">
-<div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(245,158,11,.05));border:1px solid rgba(245,158,11,.2);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">📦</div>
-<div><div style="font-weight:600;font-size:11px">Coordinateur Logistique CDD</div><div style="color:var(--t3);font-size:9px">Lassarat · 2024</div></div>
-</div>
-</div>
-</div>
-
-<!-- Formation -->
-<div style="background:var(--c);border:1px solid var(--b);border-radius:16px;padding:16px;margin-bottom:10px">
-<div style="font-size:10px;font-weight:700;color:var(--p);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Formation</div>
-<div style="display:flex;flex-direction:column;gap:8px">
-<div style="display:flex;gap:8px;align-items:center"><span style="padding:3px 10px;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.2);border-radius:20px;font-size:9px;font-weight:600;color:var(--p);white-space:nowrap">2024–26</span><span style="font-size:11px;font-weight:500">BTS GTLA — EM Normandie</span></div>
-<div style="display:flex;gap:8px;align-items:center"><span style="padding:3px 10px;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.2);border-radius:20px;font-size:9px;font-weight:600;color:var(--p);white-space:nowrap">2023–24</span><span style="font-size:11px;font-weight:500">BUT MLT — IUT du Havre</span></div>
-<div style="display:flex;gap:8px;align-items:center"><span style="padding:3px 10px;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.2);border-radius:20px;font-size:9px;font-weight:600;color:var(--p);white-space:nowrap">2023</span><span style="font-size:11px;font-weight:500">Baccalauréat — Lycée Jehan Ango, Dieppe</span></div>
-</div>
-</div>
-
-<!-- Compétences & Langues -->
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
-<div style="background:var(--c);border:1px solid var(--b);border-radius:16px;padding:16px">
-<div style="font-size:10px;font-weight:700;color:var(--g);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Compétences</div>
-<div style="display:flex;gap:4px;flex-wrap:wrap">
-<span style="padding:4px 10px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);border-radius:20px;font-size:9px;color:var(--t2)">Coordination logistique</span>
-<span style="padding:4px 10px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);border-radius:20px;font-size:9px;color:var(--t2)">Booking maritime</span>
-<span style="padding:4px 10px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);border-radius:20px;font-size:9px;color:var(--t2)">Gestion des flux</span>
-<span style="padding:4px 10px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);border-radius:20px;font-size:9px;color:var(--t2)">KPIs & reporting</span>
-<span style="padding:4px 10px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);border-radius:20px;font-size:9px;color:var(--t2)">E-commerce</span>
-<span style="padding:4px 10px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);border-radius:20px;font-size:9px;color:var(--t2)">Automatisation</span>
-</div>
-</div>
-<div style="background:var(--c);border:1px solid var(--b);border-radius:16px;padding:16px">
-<div style="font-size:10px;font-weight:700;color:var(--am);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Outils & Langues</div>
-<div style="display:flex;gap:4px;flex-wrap:wrap">
-<span style="padding:4px 10px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.15);border-radius:20px;font-size:9px;color:var(--t2)">Excel</span>
-<span style="padding:4px 10px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.15);border-radius:20px;font-size:9px;color:var(--t2)">TMS Dispatcher</span>
-<span style="padding:4px 10px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.15);border-radius:20px;font-size:9px;color:var(--t2)">Make.com</span>
-<span style="padding:4px 10px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.15);border-radius:20px;font-size:9px;color:var(--t2)">Notion</span>
-<span style="padding:4px 10px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.15);border-radius:20px;font-size:9px;color:var(--t2)">Claude API</span>
-<span style="padding:4px 10px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);border-radius:20px;font-size:9px;color:var(--t2)">🇬🇧 B2</span>
-<span style="padding:4px 10px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.15);border-radius:20px;font-size:9px;color:var(--t2)">🇪🇸 A2</span>
-</div>
-</div>
-</div>
-
-<!-- Centres d'intérêt -->
-<div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:8px 0">
-<span style="padding:4px 12px;background:var(--bg3);border:1px solid var(--b);border-radius:20px;font-size:9px;color:var(--t3)">🎾 Tennis</span>
-<span style="padding:4px 12px;background:var(--bg3);border:1px solid var(--b);border-radius:20px;font-size:9px;color:var(--t3)">⛵ Voile</span>
-<span style="padding:4px 12px;background:var(--bg3);border:1px solid var(--b);border-radius:20px;font-size:9px;color:var(--t3)">🚗 Automobile</span>
-<span style="padding:4px 12px;background:var(--bg3);border:1px solid var(--b);border-radius:20px;font-size:9px;color:var(--t3)">⌚ Horlogerie</span>
-<span style="padding:4px 12px;background:var(--bg3);border:1px solid var(--b);border-radius:20px;font-size:9px;color:var(--t3)">🤖 IA & Veille tech</span>
-</div>
-
-</div>
-</div>
 </div>
 </div>
 <div class="share-toast">✅ Lien copié !</div>
@@ -5402,6 +5426,17 @@ const td=new Date().toISOString().slice(0,10);
 if(!S.sk.includes(td)){S.sk.push(td);sv();}
 
 // Navigation
+function toggleBubble(id){
+  const panel=document.getElementById('bp-'+id);
+  const btn=document.querySelector('.bm-'+id.replace('profil','profil').replace('atlas','atlas'));
+  if(!panel)return;
+  const isOpen=panel.classList.contains('open');
+  // Close all panels first
+  document.querySelectorAll('.bubble-panel').forEach(p=>p.classList.remove('open'));
+  document.querySelectorAll('.bubble-btn').forEach(b=>b.classList.remove('active'));
+  // Toggle if wasn't open
+  if(!isOpen){panel.classList.add('open');if(btn)btn.classList.add('active');}
+}
 function go(id){
   document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('.ni').forEach(n=>n.classList.remove('on'));
