@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>ATLAS — BTS GTLA Révisions</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
-:root{--bg:#0a0e17;--bg2:#0f1520;--bg3:#141c2b;--c:#1a2332;--c2:#1e2940;--b:#1e2d42;--b2:#263548;--a:#3b82f6;--ag:rgba(59,130,246,.15);--g:#22c55e;--r:#ef4444;--am:#f59e0b;--p:#a855f7;--cy:#06b6d4;--t:#e2e8f0;--t2:#94a3b8;--t3:#64748b;--go:#d4a853;--rd:10px;--sh:0 4px 20px rgba(0,0,0,.3);--tr:.2s ease}
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);min-height:100vh;overflow-x:hidden;font-size:13px}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+:root{--bg:#0a0e17;--bg2:#0f1520;--bg3:#141c2b;--c:#1a2332;--c2:#1e2940;--b:#1e2d42;--b2:#263548;--a:#3b82f6;--ag:rgba(59,130,246,.15);--g:#22c55e;--r:#ef4444;--am:#f59e0b;--p:#a855f7;--cy:#06b6d4;--t:#e2e8f0;--t2:#94a3b8;--t3:#64748b;--go:#d4a853;--rd:10px;--sh:0 4px 20px rgba(0,0,0,.3);--tr:.2s ease;--font-title:-apple-system,BlinkMacSystemFont,'SF Pro Display','Inter',sans-serif;--font-body:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--font-body);background:var(--bg);color:var(--t);min-height:100vh;overflow-x:hidden;font-size:13px}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--b2);border-radius:3px}
 .app{display:flex;min-height:100vh}
 .sb{width:64px;background:var(--bg2);border-right:1px solid var(--b);display:flex;flex-direction:column;align-items:center;padding:12px 0;position:fixed;top:0;left:0;bottom:0;z-index:100}
@@ -22,13 +22,13 @@
 .ni:hover .tip{display:block}
 .mc{margin-left:64px;flex:1}
 .hd{padding:12px 20px;border-bottom:1px solid var(--b);background:var(--bg2);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;backdrop-filter:blur(10px)}
-.ht{font-family:'Playfair Display',serif;font-size:17px;font-weight:600}
+.ht{font-family:var(--font-title);font-size:17px;font-weight:600}
 .hs{font-size:8px;color:var(--t3);letter-spacing:1.5px;text-transform:uppercase}
 .badges{display:flex;gap:8px}.bdg{display:flex;align-items:center;gap:3px;padding:3px 8px;background:var(--bg3);border:1px solid var(--b);border-radius:16px;font-size:9px;color:var(--t2)}
 .bdg b{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--a)}
 .pg{display:none;padding:16px 20px;animation:fi .25s ease}.pg.on{display:block}
 @keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
-.st{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:3px}.st em{font-style:italic;color:var(--a)}
+.st{font-family:var(--font-title);font-size:20px;font-weight:600;margin-bottom:3px}.st em{font-style:italic;color:var(--a)}
 .sd{color:var(--t3);font-size:10px;margin-bottom:14px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:12px}
 .card{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:14px;cursor:pointer;transition:all var(--tr);position:relative;overflow:hidden}
@@ -137,7 +137,34 @@
 .ht2{width:100%;border-collapse:collapse}
 .ht2 th{text-align:left;padding:5px 8px;font-size:7px;text-transform:uppercase;letter-spacing:.6px;color:var(--t3);border-bottom:1px solid var(--b)}
 .ht2 td{padding:6px 8px;border-bottom:1px solid var(--b);font-size:9px;color:var(--t2)}.ht2 tr:hover td{background:var(--bg3)}
-@media(max-width:768px){.sb{width:48px}.mc{margin-left:48px}.hd{padding:8px 10px}.pg{padding:10px}.grid{grid-template-columns:1fr}.badges{display:none}}
+@media(max-width:768px){
+  .sb{width:48px}
+  .mc,.mn{margin-left:48px}
+  .hd{padding:8px 10px}
+  .pg{padding:12px 10px}
+  .grid{grid-template-columns:1fr}
+  .badges{display:none}
+  .card{padding:16px}
+  .card-t{font-size:14px}
+  .card-d{font-size:11px}
+  .tab{padding:8px 14px;font-size:11px}
+  .tabs{gap:4px}
+  .fi{padding:16px}
+  .fi-t{font-size:14px}
+  .fi-c{font-size:12px;line-height:2}
+  .qo{padding:12px 14px;font-size:12px}
+  .qo .lt{width:24px;height:24px;font-size:10px}
+  .qq{font-size:15px}
+  .st{font-size:18px}
+  .sd{font-size:11px}
+  body{font-size:14px}
+  .ni{width:40px;height:42px;font-size:17px}
+  .qsel{grid-template-columns:1fr 1fr}
+  .qsel-btn{padding:10px;font-size:11px}
+  .about-section{padding:16px !important}
+  .about-section h3{font-size:16px !important}
+  .about-section p,.about-section li{font-size:12px !important}
+}
 
 /* Accordion course cards */
 .fi-header{cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:12px;transition:background .2s}
@@ -290,9 +317,20 @@
   .dia svg{min-width:400px}
   .countdown{font-size:22px}
 }
+@media(max-width:480px){
+  .sb{width:42px}
+  .mc,.mn{margin-left:42px;padding:6px}
+  .qsel{grid-template-columns:1fr}
+  .ni{width:36px;height:38px;font-size:16px}
+  .logo{width:32px;height:32px;font-size:11px}
+  .fi-c table{font-size:10px}
+  .fi-c th,.fi-c td{padding:6px 8px}
+  .exo-body{padding:10px}
+  .enonce{font-size:12px;padding:10px}
+}
 @media(max-width:380px){
-  .sb{width:48px}
-  .mn{margin-left:48px;padding:8px}
+  .sb{width:42px}
+  .mn{margin-left:42px;padding:6px}
   .qsel{grid-template-columns:1fr}
 }
 /* PWA-like feel */
@@ -337,6 +375,7 @@ body{-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
 <div class="ni" onclick="shareApp()">🔗<span class="tip">Partager</span></div>
 <div class="ni" data-p="sc" onclick="go('sc')">🏆<span class="tip">Scores</span></div>
 <div class="ni" data-p="plan" onclick="go('plan')">📅<span class="tip">Planning</span></div>
+<div class="ni" data-p="about" onclick="go('about')">ℹ️<span class="tip">À propos</span></div>
 </div></nav>
 <div class="mn">
 <div class="pg on" id="pg-dash">
@@ -359,6 +398,19 @@ body{-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
 <div class="card" onclick="go('e6')" style="background:var(--c);border:1px solid var(--b);border-radius:10px;padding:14px;cursor:pointer"><div style="font-weight:600;font-size:13px">📊 E6 — Performance</div><div style="font-size:9px;color:var(--t3);margin-top:4px">20 fiches · 200 quiz · 63 ex · 60 interactifs</div></div>
 <div class="card" onclick="go('e7')" style="background:var(--c);border:1px solid var(--b);border-radius:10px;padding:14px;cursor:pointer"><div style="font-weight:600;font-size:13px">🚀 E7 — Pérennisation</div><div style="font-size:9px;color:var(--t3);margin-top:4px">20 fiches · 200 quiz · 63 ex · 30 interactifs</div></div>
 </div>
+<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px 0 6px;padding-top:14px;border-top:1px solid var(--b)">
+<a href="https://www.linkedin.com/in/louis-rivault-b267502aa" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;padding:6px 14px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:8px;color:var(--a);text-decoration:none;font-size:10px;font-weight:600;transition:all .2s">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+LinkedIn
+</a>
+<a href="CV_Louis_Rivault.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;padding:6px 14px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:8px;color:var(--g);text-decoration:none;font-size:10px;font-weight:600;transition:all .2s">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+Mon CV
+</a>
+<span onclick="go('about')" style="display:inline-flex;align-items:center;gap:5px;padding:6px 14px;background:rgba(148,163,184,.08);border:1px solid rgba(148,163,184,.2);border-radius:8px;color:var(--t2);font-size:10px;font-weight:600;cursor:pointer;transition:all .2s">
+ℹ️ À propos
+</span>
+</div>
 </div>
 <div class="pg" id="pg-e1"></div>
 <div class="pg" id="pg-e2"></div>
@@ -369,6 +421,49 @@ body{-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
 <div class="pg" id="pg-e7"></div>
 <div class="pg" id="pg-sc"></div>
 <div class="pg" id="pg-plan"></div>
+<div class="pg" id="pg-about">
+<div class="about-section" style="max-width:700px;margin:0 auto;padding:20px">
+<h2 style="font-family:var(--font-title);font-size:22px;font-weight:700;margin-bottom:6px">À propos d'ATLAS</h2>
+<p style="color:var(--t2);font-size:11px;line-height:1.8;margin-bottom:16px">
+ATLAS est un portail de révisions complet dédié au BTS GTLA (Gestion des Transports et Logistique Associée). Conçu pour les étudiants qui veulent réussir leurs examens, il rassemble tout le programme dans une interface moderne et intuitive.
+</p>
+<h3 style="font-family:var(--font-title);font-size:15px;font-weight:600;margin-bottom:8px;color:var(--a)">Ce que propose ATLAS</h3>
+<ul style="color:var(--t2);font-size:11px;line-height:2;padding-left:18px;margin-bottom:16px">
+<li><strong style="color:var(--t)">143 fiches de révision</strong> couvrant les 7 épreuves du BTS GTLA, de la Culture Générale à la Pérennisation</li>
+<li><strong style="color:var(--t)">1 400 quiz interactifs</strong> avec correction immédiate et explications détaillées pour tester tes connaissances</li>
+<li><strong style="color:var(--t)">408 exercices pratiques</strong> incluant des calculs de cotation, des études de cas transport et des mises en situation</li>
+<li><strong style="color:var(--t)">300 exercices interactifs</strong> avec saisie libre, curseurs et tableaux à compléter</li>
+<li><strong style="color:var(--t)">140 schémas et diagrammes</strong> pour visualiser les flux logistiques, les Incoterms et les processus douaniers</li>
+<li><strong style="color:var(--t)">Suivi de progression</strong> avec scores, moyennes et recommandations personnalisées</li>
+</ul>
+<h3 style="font-family:var(--font-title);font-size:15px;font-weight:600;margin-bottom:8px;color:var(--a)">Les 7 épreuves couvertes</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-bottom:20px">
+<div style="background:var(--c);border:1px solid var(--b);border-radius:8px;padding:10px"><strong style="font-size:11px">E1</strong><span style="font-size:10px;color:var(--t2)"> — Culture Générale et Expression</span></div>
+<div style="background:var(--c);border:1px solid var(--b);border-radius:8px;padding:10px"><strong style="font-size:11px">E2</strong><span style="font-size:10px;color:var(--t2)"> — Anglais</span></div>
+<div style="background:var(--c);border:1px solid var(--b);border-radius:8px;padding:10px"><strong style="font-size:11px">E3</strong><span style="font-size:10px;color:var(--t2)"> — CEJM</span></div>
+<div style="background:var(--c);border:1px solid var(--b);border-radius:8px;padding:10px"><strong style="font-size:11px">E4</strong><span style="font-size:10px;color:var(--t2)"> — Mise en œuvre des opérations</span></div>
+<div style="background:var(--c);border:1px solid var(--b);border-radius:8px;padding:10px"><strong style="font-size:11px">E5</strong><span style="font-size:10px;color:var(--t2)"> — Conception d'opérations</span></div>
+<div style="background:var(--c);border:1px solid var(--b);border-radius:8px;padding:10px"><strong style="font-size:11px">E6</strong><span style="font-size:10px;color:var(--t2)"> — Analyse de la performance</span></div>
+<div style="background:var(--c);border:1px solid var(--b);border-radius:8px;padding:10px"><strong style="font-size:11px">E7</strong><span style="font-size:10px;color:var(--t2)"> — Pérennisation et développement</span></div>
+</div>
+<div style="border-top:1px solid var(--b);padding-top:16px;margin-top:8px">
+<h3 style="font-family:var(--font-title);font-size:15px;font-weight:600;margin-bottom:10px;color:var(--a)">L'auteur</h3>
+<p style="color:var(--t2);font-size:11px;line-height:1.8;margin-bottom:12px">
+ATLAS a été créé par <strong style="color:var(--t)">Louis Rivault</strong>, étudiant en BTS GTLA, pour aider ses camarades de promo à préparer efficacement les examens.
+</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<a href="https://www.linkedin.com/in/louis-rivault-b267502aa" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);border-radius:8px;color:var(--a);text-decoration:none;font-size:11px;font-weight:600;transition:all .2s">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+LinkedIn
+</a>
+<a href="CV_Louis_Rivault.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);border-radius:8px;color:var(--g);text-decoration:none;font-size:11px;font-weight:600;transition:all .2s">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+Télécharger mon CV
+</a>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="share-toast">✅ Lien copié !</div>
