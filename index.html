@@ -426,11 +426,35 @@ body{-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
 </div>
 <!-- Clickable bubbles -->
 <div class="dash-bubbles">
-<div class="bubble-btn bm-profil" onclick="toggleBubble('profil')">👤 Mon Profil</div>
 <div class="bubble-btn bm-atlas" onclick="toggleBubble('atlas')">✨ À propos d'Atlas</div>
+<div class="bubble-btn bm-profil" onclick="toggleBubble('profil')" style="padding:7px 14px;font-size:9px;border-radius:20px;opacity:.7">👤 Louis Rivault</div>
 </div>
 
-<!-- Profil panel -->
+<!-- Atlas panel (primary) -->
+<div class="bubble-panel" id="bp-atlas">
+<div class="bp-inner" style="text-align:center">
+<div style="font-size:22px;margin-bottom:6px">🌍</div>
+<div style="font-weight:700;font-size:13px;margin-bottom:10px">Portail de révisions BTS GTLA</div>
+<div style="display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin-bottom:10px">
+<span class="pill pill-b">📝 143 fiches</span>
+<span class="pill pill-p">🧠 1 400 quiz</span>
+<span class="pill pill-g">✏️ 408 exercices</span>
+<span class="pill pill-am">🎯 300 interactifs</span>
+<span class="pill pill-cy">📊 140 schémas</span>
+</div>
+<div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:center">
+<span class="pill pill-neutral">E1 Culture G.</span>
+<span class="pill pill-neutral">E2 Anglais</span>
+<span class="pill pill-neutral">E3 CEJM</span>
+<span class="pill pill-neutral">E4 Mise en œuvre</span>
+<span class="pill pill-neutral">E5 Conception</span>
+<span class="pill pill-neutral">E6 Performance</span>
+<span class="pill pill-neutral">E7 Pérennisation</span>
+</div>
+</div>
+</div>
+
+<!-- Profil panel (secondary) -->
 <div class="bubble-panel" id="bp-profil">
 <div class="bp-inner">
 <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
@@ -507,30 +531,6 @@ body{-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
 <span class="pill pill-neutral">🚗 Auto</span>
 <span class="pill pill-neutral">⌚ Horlogerie</span>
 <span class="pill pill-neutral">🤖 IA</span>
-</div>
-</div>
-</div>
-
-<!-- Atlas panel -->
-<div class="bubble-panel" id="bp-atlas">
-<div class="bp-inner" style="text-align:center">
-<div style="font-size:22px;margin-bottom:6px">🌍</div>
-<div style="font-weight:700;font-size:13px;margin-bottom:10px">Portail de révisions BTS GTLA</div>
-<div style="display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin-bottom:10px">
-<span class="pill pill-b">📝 143 fiches</span>
-<span class="pill pill-p">🧠 1 400 quiz</span>
-<span class="pill pill-g">✏️ 408 exercices</span>
-<span class="pill pill-am">🎯 300 interactifs</span>
-<span class="pill pill-cy">📊 140 schémas</span>
-</div>
-<div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:center">
-<span class="pill pill-neutral">E1 Culture G.</span>
-<span class="pill pill-neutral">E2 Anglais</span>
-<span class="pill pill-neutral">E3 CEJM</span>
-<span class="pill pill-neutral">E4 Mise en œuvre</span>
-<span class="pill pill-neutral">E5 Conception</span>
-<span class="pill pill-neutral">E6 Performance</span>
-<span class="pill pill-neutral">E7 Pérennisation</span>
 </div>
 </div>
 </div>
