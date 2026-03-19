@@ -137,6 +137,23 @@
 .ht2{width:100%;border-collapse:collapse}
 .ht2 th{text-align:left;padding:5px 8px;font-size:7px;text-transform:uppercase;letter-spacing:.6px;color:var(--t3);border-bottom:1px solid var(--b)}
 .ht2 td{padding:6px 8px;border-bottom:1px solid var(--b);font-size:9px;color:var(--t2)}.ht2 tr:hover td{background:var(--bg3)}
+/* Desktop responsive fix */
+@media(min-width:769px){
+  .mc{margin-left:64px;flex:1;max-width:calc(100vw - 64px);overflow-x:hidden}
+  .pg{padding:20px 28px}
+  .grid{grid-template-columns:repeat(3,1fr);gap:14px}
+  .hd{padding:14px 28px}
+  .card-t{font-size:13px}.card-d{font-size:10px}
+  .fi{padding:16px 20px}.fi-c{font-size:11.5px;line-height:1.9}
+  .tabs{flex-wrap:nowrap;overflow-x:auto}
+  .qc{max-width:700px}
+  .qsel{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+}
+@media(min-width:1200px){
+  .grid{grid-template-columns:repeat(3,1fr);gap:16px}
+  .pg{padding:24px 36px}
+  .hd{padding:16px 36px}
+}
 @media(max-width:768px){
   .sb{width:48px}
   .mc,.mn{margin-left:48px}
